@@ -1,0 +1,6 @@
+# IDE
+.idea/
+
+# Localization Files
+output/
+original/
