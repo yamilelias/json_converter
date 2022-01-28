@@ -17,7 +17,7 @@ export const objectValueByString = (obj, str) => {
     }
   }
   return obj;
-}
+};
 
 /**
  * Iterate all the levels in an array of objects.
@@ -28,23 +28,37 @@ export const iterateArrayOfObjectsLevels = (level = 0) => (parentNode) => {
   if (parentNode.children && level < 2) {
     parentNode.children.forEach(iterateMapLevels(level + 1));
   }
-}
+};
+
+const getKeyFromValue = (map, searchValue) => {
+  for (let [key, value] of map.entries()) {
+    if (value === searchValue)
+      return key;
+  }
+};
 
 /**
- * Iterate a Map, including nested nodes.
- * @param entries
+ * Returns a New Map with the key bindings.
+ * @param original
+ * @param refactored
  * @returns {Map<any, any>}
  */
-export const iterateMap = (entries) => {
-  const newObj = new Map();
-  for (const [key, value] of entries) {
-    if (typeof value === 'object') {
-      const child = iterateMap(Object.entries(value));
-      newObj.set(key, Object.fromEntries(child));
-    } else {
-      newObj.set(key, value);
+export const getNewMap = (original, refactored) => {
+  const iterateMap = (entries) => {
+    const newObj = new Map();
+    for (const [key, value] of entries) {
+      if (typeof value === 'object') {
+        const child = iterateMap(Object.entries(value));
+        newObj.set(key, Object.fromEntries(child));
+      } else {
+        const str = getKeyFromValue(original, value);
+        const newValue = str ? str : '';
+        newObj.set(key, newValue);
+      }
     }
-  }
 
-  return newObj;
+    return newObj;
+  };
+
+  return iterateMap(refactored.entries());
 };
