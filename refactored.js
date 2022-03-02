@@ -129,7 +129,30 @@ export const refactored = {
     "LOGOUT": "Logout"
   },
   "COMMON": {
-
+    "CHECKLIST": "Checklist",
+    "BACK": "Back",
+    "ATTACHMENTS": "Attachments",
+    "DOWNLOAD": "Download",
+    "QUESTION_ANSWER": "Question Answer",
+    "ANSWER": "Answer",
+    "YES": "Yes",
+    "NO": "No",
+    "NA": "N\/A",
+    "NRI": "No, Resolved In Place",
+    "SCORE": "Score",
+    "COMMENTS": "Comments",
+    "CONTINUE": "Continue",
+    "DONE": "Done",
+    "G": " [G]",
+  },
+  "MESSAGES": {
+    "ACTION_DUE_DATE": "Action Due Date",
+    "ACTION_REQUIRED": "A recommended action is required for this question",
+    "ALLOWED_EXTENSION": "Can't attach {0} because this file extension is not permitted.",
+    "ANSWER_REQUIRED": "An answer is required for this question",
+    "CODE_REQUIRED": "Code is required",
+    "DUE_DATE_BLOCKED": "You cannot capture Audits after Due Date.",
+    "DUE_DATE_REQUIRED": "A due date for this action is required",
   },
   "AUDITS": {
     "ACTION": "Action",

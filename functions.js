@@ -62,3 +62,14 @@ export const getNewMap = (original, refactored) => {
 
   return iterateMap(refactored.entries());
 };
+
+/**
+ * Writes a line that will be replaced with the following printed
+ * @param text
+ * @returns {*}
+ */
+export const writeTemporaryConsoleLine = text => {
+  process.stdout.clearLine();  // clear current text
+  process.stdout.write(text);
+  process.stdout.cursorTo(0);  // move cursor to beginning of line
+};
