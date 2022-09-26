@@ -1,8 +1,8 @@
 import fs from 'fs';
 import { refactored } from './refactored.js';
 import { original } from './original.js';
-import es from './original_es.js';
-import pt from './original_pt.js';
+import es from './example/original_es.js';
+import pt from './example/original_pt.js';
 import { writeTemporaryConsoleLine, getNewMap } from './functions.js';
 
 const languages = {
