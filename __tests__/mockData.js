@@ -1,0 +1,52 @@
+export const MockOriginalObject = {
+  en: "English",
+  es: "Spanish",
+  de: "German",
+  hu: "Hungarian",
+  fr: "French",
+  ot: "Portuguese",
+  ch: "Chinese",
+  cz: "Czech",
+  sk: "Slovak",
+  it: "Italian",
+  po: "Polish",
+  ru: "Russian",
+  sr: "Serbian",
+  tk: "Turkish",
+};
+
+export const MockRefactoredObject = {
+  LANGUAGES: {
+    ENGLISH: "English",
+    SPANISH: "Spanish",
+    GERMAN: "German",
+    HUNGARIAN: "Hungarian",
+    FRENCH: "French",
+    PORTUGUESE: "Portuguese",
+    CHINESE: "Chinese",
+    CZECH: "Czech",
+    SLOVAK: "Slovak",
+    ITALIAN: "Italian",
+    POLISH: "Polish",
+    RUSSIAN: "Russian",
+    SERBIAN: "Serbian",
+    TURKISH: "Turkish",
+  },
+};
+
+export const MockResultObject = {
+  ENGLISH: "en",
+  SPANISH: "es",
+  GERMAN: "de",
+  HUNGARIAN: "hu",
+  FRENCH: "fr",
+  PORTUGUESE: "ot",
+  CHINESE: "ch",
+  CZECH: "cz",
+  SLOVAK: "sk",
+  ITALIAN: "it",
+  POLISH: "po",
+  RUSSIAN: "ru",
+  SERBIAN: "sr",
+  TURKISH: "tk",
+};

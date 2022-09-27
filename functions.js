@@ -20,19 +20,12 @@ export const objectValueByString = (obj, str) => {
 };
 
 /**
- * Iterate all the levels in an array of objects.
- * @param {number} level
- * @returns {(function(*): void)|*}
+ * It searches with the provided value if any of the object keys match.
+ * @param {Map<string, string>} map
+ * @param {string} searchValue
+ * @returns string | undefined
  */
-export const iterateArrayOfObjectsLevels =
-  (level = 0) =>
-  (parentNode) => {
-    if (parentNode.children && level < 2) {
-      parentNode.children.forEach(iterateMapLevels(level + 1));
-    }
-  };
-
-const getKeyFromValue = (map, searchValue) => {
+export const getKeyFromValue = (map, searchValue) => {
   for (let [key, value] of map.entries()) {
     if (value === searchValue) return key;
   }
@@ -40,9 +33,9 @@ const getKeyFromValue = (map, searchValue) => {
 
 /**
  * Returns a New Map with the key bindings.
- * @param {Object} original The original JSON were we will take the strings from
- * @param {Object} refactored The JSON with the new structure that we will match
- * @returns {Map<any, any>}
+ * @param {Map<string, unknown>} original The original JSON were we will take the strings from
+ * @param {Map<string, unknown>} refactored The JSON with the new structure that we will match
+ * @returns {Map<string, unknown>}
  */
 export const getNewMap = (original, refactored) => {
   const iterateMap = (entries) => {
