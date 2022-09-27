@@ -60,7 +60,7 @@ export const getNewMap = (original, refactored) => {
 /**
  * Writes a line that will be replaced with the following printed
  * @param text
- * @returns {*}
+ * @returns void
  */
 export const writeTemporaryConsoleLine = (text) => {
   process.stdout.clearLine(); // clear current text
