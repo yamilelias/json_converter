@@ -3,7 +3,7 @@ import {
   getNewMap,
   objectValueByString,
   writeTemporaryConsoleLine,
-} from "../functions";
+} from "../src/functions.js";
 import {
   MockOriginalObject,
   MockRefactoredObject,

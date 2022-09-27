@@ -1,8 +1,8 @@
 import fs from "fs";
 import { refactored } from "./refactored.js";
 import { original } from "./original.js";
-import es from "./example/original_es.js";
-import pt from "./example/original_pt.js";
+import es from "../example/original_es.js";
+import pt from "../example/original_pt.js";
 import { writeTemporaryConsoleLine, getNewMap } from "./functions.js";
 
 const languages = {
@@ -13,7 +13,7 @@ const languages = {
 let currentLanguage = "";
 
 const saveToFile = (language, key) => {
-  const fileName = `${key}.json`;
+  const fileName = `./output/${key}.json`;
   const JSONLanguage = JSON.stringify(language);
 
   fs.writeFile(fileName, JSONLanguage, (err) => {
@@ -54,7 +54,7 @@ const iterateLanguages = (newPairing) => {
   });
 };
 
-const run = () => {
+export const run = () => {
   const newPairing = getKeyPairing();
   iterateLanguages(Object.fromEntries(newPairing));
 };
