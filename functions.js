@@ -1,7 +1,7 @@
 /**
  * Accessing nested JavaScript objects and arrays by string path.
- * @param obj
- * @param str
+ * @param {Object} obj
+ * @param {string} str
  * @returns {*}
  */
 export const objectValueByString = (obj, str) => {
@@ -21,7 +21,7 @@ export const objectValueByString = (obj, str) => {
 
 /**
  * Iterate all the levels in an array of objects.
- * @param level
+ * @param {number} level
  * @returns {(function(*): void)|*}
  */
 export const iterateArrayOfObjectsLevels =
@@ -40,8 +40,8 @@ const getKeyFromValue = (map, searchValue) => {
 
 /**
  * Returns a New Map with the key bindings.
- * @param original
- * @param refactored
+ * @param {Object} original The original JSON were we will take the strings from
+ * @param {Object} refactored The JSON with the new structure that we will match
  * @returns {Map<any, any>}
  */
 export const getNewMap = (original, refactored) => {
