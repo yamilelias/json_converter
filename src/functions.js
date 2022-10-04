@@ -1,3 +1,10 @@
+import fs from "fs";
+
+/**
+ * Any valid JSON string
+ * @typedef {string} JSON
+ */
+
 /**
  * Accessing nested JavaScript objects and arrays by string path.
  * @param {Object} obj
@@ -66,4 +73,18 @@ export const writeTemporaryConsoleLine = (text) => {
   process.stdout.clearLine(); // clear current text
   process.stdout.write(text);
   process.stdout.cursorTo(0); // move cursor to beginning of line
+};
+
+/**
+ * A function to save the provided JSON to a file.
+ * @param {JSON} language The complete language that will be saved to the file
+ * @param {string} key The language key to use it as the file name
+ */
+export const saveToFile = async (language, key) => {
+  const fileName = `./output/${key}.json`;
+  const JSONLanguage = JSON.stringify(language);
+
+  await fs.writeFile(fileName, JSONLanguage, "utf8", undefined);
+
+  console.log(`The language "${key}" has been created successfully.`);
 };

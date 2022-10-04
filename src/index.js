@@ -1,9 +1,12 @@
-import fs from "fs";
 import { refactored } from "./refactored.js";
 import { original } from "./original.js";
 import es from "../example/original_es.js";
 import pt from "../example/original_pt.js";
-import { writeTemporaryConsoleLine, getNewMap } from "./functions.js";
+import {
+  writeTemporaryConsoleLine,
+  getNewMap,
+  saveToFile,
+} from "./functions.js";
 
 const languages = {
   es: es,
@@ -11,18 +14,6 @@ const languages = {
 };
 
 let currentLanguage = "";
-
-const saveToFile = (language, key) => {
-  const fileName = `./output/${key}.json`;
-  const JSONLanguage = JSON.stringify(language);
-
-  fs.writeFile(fileName, JSONLanguage, (err) => {
-    if (err) {
-      throw err;
-    }
-    console.log(`The language "${key}" has been created successfully.`);
-  });
-};
 
 const replaceNestedObject = (obj) => {
   Object.keys(obj).forEach((key) => {
@@ -46,11 +37,11 @@ const getKeyPairing = () => {
 };
 
 const iterateLanguages = (newPairing) => {
-  Object.keys(languages).forEach((key) => {
+  Object.keys(languages).forEach(async (key) => {
     currentLanguage = key; // TODO: Fix scenario with more than one language
     const newLanguage = Object.assign({}, newPairing);
     replaceNestedObject(newLanguage);
-    saveToFile(newLanguage, key);
+    await saveToFile(newLanguage, key);
   });
 };
 
